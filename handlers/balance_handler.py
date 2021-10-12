@@ -20,7 +20,7 @@ def balance_handler(update: Update, context: CallbackContext):
         db = client.telegram
         col: Collection = db.wallets
         found = col.find_one({"user_id": user_id})
-        if found:
+        if found and not address:
             address = found['wallet']
             text = send_user_data_util(address, url)
             update.message.reply_text(text)
