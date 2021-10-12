@@ -16,7 +16,7 @@ def start_bot():
     for i, config in enumerate(CONFIGS):
         command, desc = config
         handler = HANDLERS[i]
-        dispatcher.add_handler(CommandHandler(command, handler))
+        dispatcher.add_handler(CommandHandler(command, handler, pass_args=True))
 
     updater.start_polling()
 
