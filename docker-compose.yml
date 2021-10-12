@@ -1,0 +1,21 @@
+version: "3"
+
+
+services:
+  webhook:
+    build:
+      context: .
+      dockerfile: dockerfiles/webhook.dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+
+  bot:
+    build:
+      context: .
+      dockerfile: dockerfiles/bot.dockerfile
+    restart: always
+    env_file:
+      - .env
