@@ -13,7 +13,6 @@ load_dotenv(dotenv_path=".env")
 def start_bot():
     updater = Updater(os.getenv("TELEGRAM_BOT_API"))
     dispatcher: Dispatcher = updater.dispatcher
-    bot = telegram.Bot(token=os.getenv("TELEGRAM_BOT_API"))
     for i, config in enumerate(CONFIGS):
         command, desc = config
         handler = HANDLERS[i]
